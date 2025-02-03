@@ -3,53 +3,62 @@
 // inspired by Brian Eno and Peter Schmidt's Oblique Strategies
 // written between 1975 and 1979
 
-
-// Piocher au hasard une phrase et l'afficher à l'écran sur une page HTML en cliquant sur un bouton
-
-// Déclarer une tableau de string qui contient toutes les phrases en fecthant le fichier /docs/assets/obliqueStrategiesSentences.txt
-const loadSentences = () => {
-    fetch('assets/docs/obliqueStrategiesSentencesList.txt')
-    .then(response => response.text())
-    .then(text => {
-        // Découper le texte en lignes et supprimer les espaces ou retours inutiles
-        sentencesArray = text.split('\n').map(sentence => sentence.trim());
-        console.log("Tableau des phrases :", sentencesArray);
-    })
-    .catch(error => console.error("Erreur lors du chargement des phrases :", error));
-};
-
-// Appel de la fonction pour charger les phrases au démarrage
-loadSentences();
-
+// Variable globale pour stocker les phrases
+let sentencesArray = [];
 
 /**
- * Sélectionne une phrase aléatoire dans sentencesArray et l'affiche dans l'élément HTML.
+ * Charge les phrases depuis le fichier texte et les stocke dans sentencesArray.
+ */
+const loadSentences = () => {
+    return fetch('assets/docs/obliqueStrategiesSentencesList.txt') // Vérifie ce chemin !
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP : ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(text => {
+            // Découper le texte en lignes et nettoyer les espaces inutiles
+            sentencesArray = text.split('\n').map(sentence => sentence.trim());
+            console.log("Tableau des phrases chargé :", sentencesArray);
+        })
+        .catch(error => console.error("Erreur lors du chargement des phrases :", error));
+};
+
+/**
+ * Sélectionne une phrase aléatoire et l'affiche dans l'élément HTML.
  */
 const displayRandomSentence = () => {
-    // Vérifier que le tableau n'est pas vide
     if (sentencesArray.length > 0) {
-        // Calculer un index aléatoire
+        // Sélectionner un index aléatoire
         const randomIndex = Math.floor(Math.random() * sentencesArray.length);
-        // Récupérer la phrase correspondante
         const randomSentence = sentencesArray[randomIndex];
-        
-        // Récupérer l'élément HTML où afficher la phrase
+
+        // Insérer la phrase dans l'élément HTML
         const displayElement = document.getElementById('displaySentence');
         if (displayElement) {
-            // Mettre à jour le contenu texte de l'élément
             displayElement.textContent = randomSentence;
         } else {
-            console.error("L'élément avec l'ID 'displaySentence' n'a pas été trouvé dans le DOM.");
+            console.error("L'élément #displaySentence est introuvable dans le DOM.");
         }
     } else {
         console.error("Le tableau des phrases est vide !");
     }
 };
 
-// Ajouter un écouteur d'événement sur le bouton pour générer une nouvelle phrase lors d'un clic
-const newSentenceButton = document.getElementById('newSentenceBtn');
-if (newSentenceButton) {
-    newSentenceButton.addEventListener('click', displayRandomSentence);
-} else {
-    console.error("Le bouton avec l'ID 'newSentenceBtn' n'a pas été trouvé dans le DOM.");
-}
+// ** Attendre que le DOM soit chargé avant d'exécuter les fonctions **
+document.addEventListener("DOMContentLoaded", async () => {
+    console.log("DOM complètement chargé, initialisation...");
+
+    // Charger les phrases avant d'ajouter l'écouteur d'événement
+    await loadSentences(); 
+
+    // Ajouter un écouteur d'événement sur le bouton pour générer une nouvelle phrase lors d'un clic
+    const newSentenceButton = document.getElementById('newSentenceBtn');
+    if (newSentenceButton) {
+        newSentenceButton.addEventListener('click', displayRandomSentence);
+        console.log("Événement click attaché au bouton !");
+    } else {
+        console.error("Le bouton avec l'ID 'newSentenceBtn' n'a pas été trouvé dans le DOM.");
+    }
+});

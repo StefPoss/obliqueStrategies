@@ -3,25 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oblique Strategies - inspired bu Brian Eno & Peter Schmidt</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="apps.js" defer></script> <!-- avec l'option defer le navigateur attend que le DOM soit entièrement charge -->
+    <title>Oblique Strategies</title>
+    <!-- Import de la police Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
-    <!-- Le contenu HTML ici -->
-    <header>
+    <!-- Conteneur principal centré -->
+    <div class="container">
+      <!-- En-tête avec overlay -->
+      <header>
         <div class="overlay">
-            <h1>Oblique Strategies</h1>
-            <h2>from Brian Eno & Peter Schmidt</h2>
-            <p>Composers: are you STUCK? Try this Brian Eno’s inspired random sentence generator</p>
+          <h1>Oblique Strategies</h1>
+          <h2>from Brian Eno & Peter Schmidt</h2>
+          <p>Composers: are you STUCK? Try this Brian Eno’s inspired random sentence generator</p>
         </div>
-    </header>
-    
-    <!-- Conteneur pour afficher la phrase sélectionnée -->
-    <div id="displaySentence">Cliquez sur le bouton pour afficher une stratégie.</div>
-    <!-- Bouton pour générer une nouvelle phrase -->
-    <button id="newSentenceBtn">Nouvelle stratégie</button>
-
-  </body>
+      </header>
+      
+      <!-- Conteneur pour afficher la phrase sélectionnée -->
+      <div id="displaySentence">I love good, loud speakers</div>
+      
+      <!-- Bouton pour générer une nouvelle phrase -->
+      <button id="newSentenceBtn">unstuck me</button>
+    </div>
+  <!-- Inclusion du script JS -->
+  <script src="apps.js"></script>
+</body>
 </html>

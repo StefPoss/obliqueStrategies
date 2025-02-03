@@ -1,77 +1,64 @@
-/* Appliquer la police Montserrat et le fond gris moyen à l'ensemble de la page */
+/* Fond de page gris moyen et utilisation de la police Montserrat */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #808080; /* Gris moyen */
+    background-color: #808080; /* gris moyen */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
   
-  /* Conteneur principal : centré, max 50% de la largeur et de la hauteur */
+  /* Conteneur principal centré en 50% de la largeur et hauteur de la fenêtre */
   .container {
     position: relative;
     width: 50vw;
     height: 50vh;
-    /* Optionnel : limiter en % sur mobile également */
-    max-width: 50%;
-    max-height: 50%;
-    background-color: #FAD6A5; /* Pastel orange */
-    overflow: hidden; /* Pour que l'overlay ne déborde pas */
+    background-color: #FAD6A5; /* pastel orange */
+    overflow: hidden; /* empêche l'overlay de déborder */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
-  /* Overlay en gris avec 40% d'opacité, couvrant tout le conteneur */
-  .overlay {
+  /* En-tête */
+  header {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Overlay qui s'affiche en gris avec 40% d'opacité par-dessus le fond orangé */
+  header .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     background-color: rgba(128, 128, 128, 0.4);
-    z-index: 1;
+    padding: 10px;
+    box-sizing: border-box;
   }
   
-  /* Contenu qui se place au-dessus de l'overlay */
-  .content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* La phrase affichée occupe environ 75% du conteneur */
-  /* On utilise flex pour centrer verticalement et horizontalement */
+  /* Zone d'affichage de la phrase */
   #displaySentence {
     flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 2em; /* Ajustable selon le rendu désiré */
+    align-items: center;
+    font-size: 2em; /* taille suffisante pour occuper environ 75% du conteneur */
     text-align: center;
-    margin: 0;
-    padding: 0 10px;
+    padding: 20px;
   }
   
-  /* Style du bouton : style Material Design rappelant la taille d'un pouce */
-  /* Hauteur typique d'un bouton MD = 56px, border-radius pour arrondir les bords */
+  /* Style du bouton en Material Design (taille d'un pouce, environ 56px) */
   #newSentenceBtn {
-    margin-top: auto;
-    margin-bottom: 20px;
-    padding: 0 20px;
     height: 56px;
+    margin: 10px auto 20px;
+    padding: 0 20px;
     border: none;
-    border-radius: 28px;
-    background-color: #ffffff; /* Couleur blanche pour contraster avec l'orange */
-    color: #FAD6A5; /* On reprend la couleur pastel orange pour le texte */
+    border-radius: 28px; /* la moitié de la hauteur pour un effet arrondi */
+    background-color: #676fb1; /* contraste avec le fond orangé */
+    color: #FAD6A5; /* reprend la couleur pastel orange */
     font-size: 1em;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -80,7 +67,7 @@ body {
   
   /* Effet au survol sur le bouton */
   #newSentenceBtn:hover {
-    background-color: #f0f0f0;
+    background-color: #292c47;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   
