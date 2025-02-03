@@ -1,0 +1,86 @@
+/* Appliquer la police Montserrat et le fond gris moyen à l'ensemble de la page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #808080; /* Gris moyen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Conteneur principal : centré, max 50% de la largeur et de la hauteur */
+  .container {
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+    /* Optionnel : limiter en % sur mobile également */
+    max-width: 50%;
+    max-height: 50%;
+    background-color: #FAD6A5; /* Pastel orange */
+    overflow: hidden; /* Pour que l'overlay ne déborde pas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Overlay en gris avec 40% d'opacité, couvrant tout le conteneur */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.4);
+    z-index: 1;
+  }
+  
+  /* Contenu qui se place au-dessus de l'overlay */
+  .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* La phrase affichée occupe environ 75% du conteneur */
+  /* On utilise flex pour centrer verticalement et horizontalement */
+  #displaySentence {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; /* Ajustable selon le rendu désiré */
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;
+  }
+  
+  /* Style du bouton : style Material Design rappelant la taille d'un pouce */
+  /* Hauteur typique d'un bouton MD = 56px, border-radius pour arrondir les bords */
+  #newSentenceBtn {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    height: 56px;
+    border: none;
+    border-radius: 28px;
+    background-color: #ffffff; /* Couleur blanche pour contraster avec l'orange */
+    color: #FAD6A5; /* On reprend la couleur pastel orange pour le texte */
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Effet au survol sur le bouton */
+  #newSentenceBtn:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
