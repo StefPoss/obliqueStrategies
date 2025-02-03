@@ -1,73 +1,75 @@
-/* Fond de page gris moyen et utilisation de la police Montserrat */
+/* Style général */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #808080; /* gris moyen */
+    background-color: #808080; /* Gris moyen */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
   
-  /* Conteneur principal centré en 50% de la largeur et hauteur de la fenêtre */
+  /* Conteneur principal */
   .container {
     position: relative;
     width: 50vw;
-    height: 50vh;
-    background-color: #FAD6A5; /* pastel orange */
-    overflow: hidden; /* empêche l'overlay de déborder */
+    max-width: 600px;
+    background-color: #FAD6A5; /* Pastel orange */
+    border-radius: 20px; /* Arrondi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    padding: 20px;
   }
   
-  /* En-tête */
-  header {
-    position: relative;
-    width: 100%;
-  }
-  
-  /* Overlay qui s'affiche en gris avec 40% d'opacité par-dessus le fond orangé */
-  header .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+  /* Overlay */
+  .overlay {
     width: 100%;
     background-color: rgba(128, 128, 128, 0.4);
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+  }
+  
+  /* Titre */
+  h1, h2, p {
+    margin: 5px 0;
   }
   
   /* Zone d'affichage de la phrase */
   #displaySentence {
-    flex: 1;
+    font-size: 1.8em;
+    text-align: center;
+    margin: 20px 0;
+    min-height: 80px; /* Empêche le contenu de bouger lorsqu'on change de phrase */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em; /* taille suffisante pour occuper environ 75% du conteneur */
-    text-align: center;
-    padding: 20px;
   }
   
-  /* Style du bouton en Material Design (taille d'un pouce, environ 56px) */
+  /* Bouton */
   #newSentenceBtn {
-    height: 56px;
-    margin: 10px auto 20px;
-    padding: 0 20px;
+    height: 50px;
+    width: 140px;
     border: none;
-    border-radius: 28px; /* la moitié de la hauteur pour un effet arrondi */
-    background-color: #676fb1; /* contraste avec le fond orangé */
-    color: #FAD6A5; /* reprend la couleur pastel orange */
+    border-radius: 25px;
+    background-color: #6A5ACD; /* Violet */
+    color: white;
     font-size: 1em;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px;
   }
   
-  /* Effet au survol sur le bouton */
+  /* Effet au survol */
   #newSentenceBtn:hover {
-    background-color: #292c47;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: #5A4ACD;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
   
