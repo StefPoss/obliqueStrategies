@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+      <!-- Inclusion du script JS avec attribut defer : charge en parallèle et attend que le DOM soit prêt avant exécution -->
+    <script src="apps.js" defer></script>
   </head>
   <body>
     <!-- Conteneur principal centré -->
@@ -17,7 +19,8 @@
         <div class="overlay">
           <h1>Oblique Strategies</h1>
           <h2>from Brian Eno & Peter Schmidt</h2>
-          <p>Composers: are you STUCK? Try this Brian Eno’s inspired random sentence generator</p>
+          <p>Composers: are you STUCK?</p>
+          <p>Try this Brian Eno’s inspired random sentence generator</p>
         </div>
       </header>
       
@@ -27,7 +30,5 @@
       <!-- Bouton pour générer une nouvelle phrase -->
       <button id="newSentenceBtn">unstuck me</button>
     </div>
-  <!-- Inclusion du script JS -->
-  <script src="apps.js"></script>
 </body>
 </html>
