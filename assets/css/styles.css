@@ -1,4 +1,8 @@
 /* Style général */
+header {
+  width: 100%; /* Ajoute ceci */
+}
+
 body {
     margin: 0;
     padding: 0;
