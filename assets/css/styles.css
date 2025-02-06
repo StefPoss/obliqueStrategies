@@ -1,6 +1,15 @@
 /* Style général */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 header {
-  width: 100%; /* Ajoute ceci */
+  width: 100%; /* pleine largeur */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0;
 }
 
 body {
@@ -76,4 +85,18 @@ body {
     background-color: #5A4ACD;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
+
+  @media (max-height: 500px) {
+    body {
+      padding-top: 10px; /* Espace en haut */
+      height: auto; /* Permet au body de s'adapter au contenu */
+    }
+  
+    .container {
+      margin-top: 10px; /* Marge pour l'aération */
+      max-height: 90vh; /* Limite la hauteur à 90% de la hauteur de l’écran */
+      overflow-y: auto; /* Ajoute un scroll si le contenu déborde */
+    }
+  }
+
   
