@@ -13,8 +13,8 @@ body {
   /* Conteneur principal */
   .container {
     position: relative;
-    width: 50vw;
-    max-width: 600px;
+    width: 75vw;
+    max-width: 800px;
     background-color: #FAD6A5; /* Pastel orange */
     border-radius: 20px; /* Arrondi */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
